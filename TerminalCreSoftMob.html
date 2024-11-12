@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Código - CreSoftMob</title>
+    <link rel="shortcut icon" href="tete.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            flex: 1;
+        }
+
+        .editor, .output {
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #252526;
+            border: 1px solid #444;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        h2 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #f8f8f2;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+            resize: none;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            border: 1px solid #444;
+            padding: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border: 1px solid #007acc;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007acc;
+            border: none;
+            color: #ffffff;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #005a99;
+        }
+
+        .output {
+            flex: 1;
+            overflow: auto;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            background-color: #ffffff;
+        }
+
+        .error-message {
+            color: #ff5555;
+            background-color: #2d2d2d;
+            padding: 10px;
+            border: 1px solid #ff5555;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        @media (min-width: 600px) {
+            .container {
+                flex-direction: row;
+            }
+            .editor {
+                width: 50%;
+                border-right: 1px solid #444;
+            }
+            .output {
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="editor">
+            <h2>Editor</h2>
+            <textarea id="html" placeholder="HTML" oninput="autoCloseTags(this)"></textarea>
+            <textarea id="css" placeholder="CSS"></textarea>
+            <textarea id="js" placeholder="JavaScript"></textarea>
+            <button id="run">Executar</button>
+            <br></br>
+            <button onclick="window.open('cursos.html')">Voltar para a tela inicial</button>
+            <div id="error" class="error-message" style="display: none;"></div>
+        </div>
+        <div class="output">
+            <h2>Resultado</h2>
+            <iframe id="resultFrame"></iframe>
+        </div>
+    </div>
+    <script>
+        document.getElementById('run').addEventListener('click', function() {
+            const htmlCode = document.getElementById('html').value;
+            const cssCode = document.getElementById('css').value;
+            const jsCode = document.getElementById('js').value;
+
+            const resultFrame = document.getElementById('resultFrame');
+            const result = resultFrame.contentWindow.document;
+            const errorDiv = document.getElementById('error');
+
+            errorDiv.style.display = 'none'; // Oculta a mensagem de erro
+
+            try {
+                result.open();
+                result.write(`
+                    <html>
+                        <head>
+                            <style>${cssCode}</style>
+                        </head>
+                        <body>
+                            ${htmlCode}
+                            <script>
+                                try {
+                                    ${jsCode}
+                                } catch (e) {
+                                    parent.document.getElementById('error').innerText = 'Erro: ' + e.message;
+                                    parent.document.getElementById('error').style.display = 'block';
+                                }
+                            <\/script>
+                        </body>
+                    </html>
+                `);
+                result.close();
+            } catch (e) {
+                errorDiv.innerText = 'Erro ao renderizar: ' + e.message;
+                errorDiv.style.display = 'block';
+            }
+        });
+
+        function autoCloseTags(textarea) {
+            const value = textarea.value;
+            const lastChar = value[value.length - 1];
+ 
+            if (lastChar === '<') {
+                const tagMatch = value.match(/<(\w+)$/);
+                if (tagMatch) {
+                    const tagName = tagMatch[1];
+                    const closingTag = `</${tagName}>`;
+                    // Adiciona a tag de fechamento se não estiver presente
+                    if (!value.includes(closingTag)) {
+                        textarea.value += closingTag;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

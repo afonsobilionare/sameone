@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novidades - CreSoftMob</title>
+    <link rel="shortcut icon" href="tete.png" type="image/x-icon">
+    <style>
+        /* Reset de margens e paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Corpo da página */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #d1d1d1;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #1d1d1d;
+            padding: 30px 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: #00d4ff;
+            text-transform: uppercase;
+        }
+
+        /* Botões de login e cadastro */
+        .header-buttons a {
+            color: #fff;
+            background-color: #00d4ff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .header-buttons a:hover {
+            background-color: #0094b6;
+            transform: translateY(-2px);
+        }
+
+        /* Container principal */
+        .container {
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            flex-grow: 1;
+            margin-bottom: 50px;
+        }
+
+        /* Cartões de cursos */
+        .course-card {
+            background-color: #1c1c1c;
+            border-radius: 12px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .course-card h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .course-card p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .price, .offer-price {
+            font-size: 1.3rem;
+            color: #00d4ff;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .discount {
+            font-size: 1.1rem;
+            color: #ff6b6b;
+            text-decoration: line-through;
+            margin-top: 5px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #00d4ff;
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0094b6;
+            transform: translateY(-2px);
+        }
+
+        /* Pacote completo */
+        .course-bundle {
+            background-color: #1c1c1c;
+            padding: 30px;
+            width: 350px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .course-bundle h3 {
+            font-size: 1.6rem;
+            color: #00d4ff;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .course-bundle p {
+            color: #b0b0b0;
+            font-size: 1rem;
+            margin-bottom: 25px;
+        }
+
+        .bundle-price {
+            font-size: 1.5rem;
+            color: #00d4ff;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .bundle-discount {
+            font-size: 1.2rem;
+            color: #ff6b6b;
+            text-decoration: line-through;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #1d1d1d;
+            color: #b0b0b0;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Adicionando efeitos de transição no hover */
+        .course-card, .course-bundle {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 style="border-bottom-style: inset;">Cursos CreSoftMob</h1>
+    <div class="header-buttons">
+        <a onclick="alert('Está em manuteção!')" href="">Cadastro</a><br></br>
+        <a href="login2.html">Login</a>
+    </div>
+</header>
+
+<div class="container">
+    <!-- Curso 1: Lógica de Programação -->
+    <div class="course-card">
+        <h3>Lógica de Programação</h3>
+        <p>Aprenda a base para desenvolver qualquer tipo de programa com raciocínio lógico e algoritmos eficientes.</p>
+        <div class="price">R$ 500,00</div>
+        <div class="discount">R$ 500,00</div>
+        <div class="offer-price">R$ 300,00</div>
+        <a href="#" class="button" id="btn-matricular-logica">Matricule-se</a>
+    </div>
+
+    <!-- Curso 2: JavaScript Back End -->
+    <div class="course-card">
+        <h3>JavaScript Back End</h3>
+        <p>Domine o JavaScript no lado do servidor e crie aplicações poderosas com Node.js e Express.</p>
+        <div class="price">R$ 500,00</div>
+        <div class="discount">R$ 500,00</div>
+        <div class="offer-price">R$ 300,00</div>
+        <a href="#" class="button" id="btn-matricular-js-backend">Matricule-se</a>
+    </div>
+
+    <!-- Curso 3: HTML & JavaScript para Website -->
+    <div class="course-card">
+        <h3>HTML & JavaScript para Website</h3>
+        <p>Construa sites interativos e dinâmicos com HTML5 e JavaScript moderno. Desde o básico até o avançado!</p>
+        <div class="price">R$ 500,00</div>
+        <div class="discount">R$ 500,00</div>
+        <div class="offer-price">R$ 300,00</div>
+        <a href="#" class="button" id="btn-matricular-html-js">Matricule-se</a>
+    </div>
+
+    <!-- Curso 4: Python para Automação -->
+    <div class="course-card">
+        <h3>Python para Automação</h3>
+        <p>Aprenda Python para automatizar tarefas do dia a dia, desde scripts simples até automações complexas.</p>
+        <div class="price">R$ 500,00</div>
+        <div class="discount">R$ 500,00</div>
+        <div class="offer-price">R$ 300,00</div>
+        <a href="#" class="button" id="btn-matricular-python">Matricule-se</a>
+    </div>
+
+    <!-- Curso 5: Pentest com Kali Linux -->
+    <div class="course-card">
+        <h3>Pentest com Kali Linux</h3>
+        <p>Torne-se um especialista em segurança e hacking ético com as ferramentas e técnicas de Pentest no Kali Linux.</p>
+        <div class="price">R$ 500,00</div>
+        <div class="discount">R$ 500,00</div>
+        <div class="offer-price">R$ 300,00</div>
+        <a href="#" class="button" id="btn-matricular-pentest">Matricule-se</a>
+    </div>
+
+    <!-- Pacote Completo -->
+    <div class="course-bundle">
+        <h3>Pacote Completo de Cursos</h3>
+        <p>Adquira todos os cursos acima e saia com um conhecimento abrangente para atuar como desenvolvedor e especialista em segurança!</p>
+        <div class="bundle-price">R$ 850,00</div>
+        <div class="bundle-discount">R$ 1500,00</div>
+        <a href="#" class="button" id="btn-adquirir-pacote">Adquirir Pacote</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Novidades do Curso | <a href="/termos">Termos de Serviço</a> | <a href="/privacidade">Política de Privacidade</a></p>
+</footer>
+
+<script>
+     function enviarMensagemWhatsApp(mensagem) {
+        var numero = "5538998039841"; // Substitua pelo número de contato desejado (incluir o código do país)
+        var url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
+        window.open(url, "_blank"); // Abre o WhatsApp no navegador
+    }
+
+    // Evento para curso de Lógica de Programação
+    document.getElementById("btn-matricular-logica").addEventListener("click", function() {
+        var mensagem = "Olá! Eu gostaria de me matricular no curso de Lógica de Programação. Agradeço!";
+        enviarMensagemWhatsApp(mensagem);
+    });
+
+    // Evento para curso de JavaScript Back End
+    document.getElementById("btn-matricular-js-backend").addEventListener("click", function() {
+        var mensagem = "Olá! Eu gostaria de me matricular no curso de JavaScript Back End. Agradeço!";
+        enviarMensagemWhatsApp(mensagem);
+    });
+
+    // Evento para curso de HTML & JavaScript para Website
+    document.getElementById("btn-matricular-html-js").addEventListener("click", function() {
+        var mensagem = "Olá! Eu gostaria de me matricular no curso de HTML & JavaScript para Website. Agradeço!";
+        enviarMensagemWhatsApp(mensagem);
+    });
+
+    // Evento para curso de Python para Automação
+    document.getElementById("btn-matricular-python").addEventListener("click", function() {
+        var mensagem = "Olá! Eu gostaria de me matricular no curso de Python para Automação. Agradeço!";
+        enviarMensagemWhatsApp(mensagem);
+    });
+
+    // Evento para curso de Pentest com Kali Linux
+    document.getElementById("btn-matricular-pentest").addEventListener("click", function() {
+        var mensagem = "Olá! Eu gostaria de me matricular no curso de Pentest com Kali Linux. Agradeço!";
+        enviarMensagemWhatsApp(mensagem);
+    });
+
+    // Evento para adquirir o pacote completo
+    document.getElementById("btn-adquirir-pacote").addEventListener("click", function() {
+        var mensagem = "Olá! Eu gostaria de adquirir o pacote completo de cursos! Agradeço pela ajuda.";
+        enviarMensagemWhatsApp(mensagem);
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Lógica de Programação</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #3b5998;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .certificado {
+            display: none;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 16px;
+            border-radius: 8px;
+            background-color: #e7f5ff;
+        }
+    </style>
+</head>
+<body>
+
+<h3>Teste seu Conhecimento</h3>
+<form id="quizForm">
+    <div>
+        <p>1. O que é um algoritmo?</p>
+        <label><input type="radio" name="q1" value="A"> Uma sequência de passos para resolver um problema.</label><br>
+        <label><input type="radio" name="q1" value="B"> Um tipo de variável.</label><br>
+        <label><input type="radio" name="q1" value="C"> Um programa de computador.</label><br>
+    </div>
+    <div>
+        <p>2. Qual estrutura é usada para repetição em programação?</p>
+        <label><input type="radio" name="q2" value="A"> If</label><br>
+        <label><input type="radio" name="q2" value="B"> Switch</label><br>
+        <label><input type="radio" name="q2" value="C"> Loop</label><br>
+    </div>
+    <div>
+        <p>3. Qual é a finalidade de uma função?</p>
+        <label><input type="radio" name="q3" value="A"> Armazenar dados.</label><br>
+        <label><input type="radio" name="q3" value="B"> Exibir informações na tela.</label><br>
+        <label><input type="radio" name="q3" value="C"> Reutilizar código.</label><br>
+    </div>
+    <button type="button" onclick="verificarRespostas()">Enviar Respostas</button>
+</form>
+
+<p id="resultado"></p>
+<div id="certificado" class="certificado">
+    <h3>Certificado de Conclusão</h3>
+    <p>Parabéns! Você completou o curso de Lógica de Programação com 100% de acerto!</p>
+    <button id="generate-cert">Gerar Certificado</button>
+</div>
+
+<script>
+    function verificarRespostas() {
+        const respostas = {
+            q1: 'A',
+            q2: 'C',
+            q3: 'C'
+        };
+
+        let acertos = 0;
+        const total = Object.keys(respostas).length;
+
+        for (let i = 1; i <= total; i++) {
+            const resposta = document.querySelector(`input[name="q${i}"]:checked`);
+            if (resposta && resposta.value === respostas[`q${i}`]) {
+                acertos++;
+            }
+        }
+
+        const resultado = document.getElementById('resultado');
+        const certificado = document.getElementById('certificado');
+
+        if (acertos === total) {
+            resultado.innerText = `Parabéns! Você acertou ${acertos} de ${total} perguntas!`;
+            certificado.style.display = 'block';
+        } else {
+            resultado.innerText = `Você acertou ${acertos} de ${total} perguntas. Tente novamente!`;
+            certificado.style.display = 'none';
+        }
+    }
+
+    document.getElementById('generate-cert').addEventListener('click', () => {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Definindo o conteúdo do certificado
+        doc.setFontSize(22);
+        doc.text("Certificado de Conclusão", 20, 70);
+        doc.setFontSize(16);
+        doc.text("Este certificado é concedido a:", 20, 100);
+        doc.text("Nome do Aluno", 20, 120);
+        doc.text("Pelo curso de Lógica de Programação", 20, 140);
+        doc.text("Data: " + new Date().toLocaleDateString(), 20, 160);
+
+        // Salvar o PDF
+        doc.save("certificado_conclusao.pdf");
+    });
+</script>
+
+</body>
+</html>

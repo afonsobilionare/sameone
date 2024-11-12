@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerar Certificado</title>
+    <link rel="shortcut icon" href="tete.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color:"blue";
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #3b5998;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        img {
+            max-width: 100px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Gerar Certificado</h1>
+    <input type="text" id="user-name" placeholder="Nome do Usuário" required>
+    <input type="text" id="course-name" placeholder="Nome do Curso" required>
+    <input type="text" id="start-date" placeholder="Data de Início (DD/MM/AAAA)" required>
+    <input type="text" id="end-date" placeholder="Data de Término (DD/MM/AAAA)" required>
+    <input type="file" id="logo-input" accept="image/*">
+    <button id="generate-cert">Gerar Certificado</button>
+    <img id="logo-preview" alt="Logotipo" style="display:none;">
+</div>
+
+<script>
+    document.getElementById('logo-input').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('logo-preview').src = e.target.result;
+            document.getElementById('logo-preview').style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    });
+
+    document.getElementById('generate-cert').addEventListener('click', () => {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        
+        // Coletando os dados do usuário
+        const nome = document.getElementById('user-name').value;
+        const curso = document.getElementById('course-name').value;
+        const dataInicio = document.getElementById('start-date').value;
+        const dataFim = document.getElementById('end-date').value;
+        const logo = document.getElementById('logo-preview').src;
+
+        // Adicionando logotipo se existir
+        if (logo) {
+            doc.addImage(logo, 'PNG', 15, 10, 50, 50); // Ajuste a posição e tamanho do logotipo
+        }
+
+        // Definindo o conteúdo do certificado
+        doc.setFontSize(22);
+        doc.text("Certificado de Conclusão", 20, 70);
+        doc.setFontSize(16);
+        doc.text(`Este certificado é concedido a: ${nome}`, 20, 100);
+        doc.text(`Pelo curso: ${curso}`, 20, 120);
+        doc.text(`Data de Início: ${dataInicio}`, 20, 140);
+        doc.text(`Data de Término: ${dataFim}`, 20, 160);
+
+        // Salvar o PDF
+        doc.save(`${nome}_certificado.pdf`);
+    });
+</script>
+
+</body>
+</html>

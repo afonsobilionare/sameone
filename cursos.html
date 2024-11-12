@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos - CreSoftMob </title>
+    <link rel="shortcut icon" href="tete.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1a535c;
+            padding: 20px;
+        }
+
+        .curso-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .conteudo {
+            display: none;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .animated-title {
+            background-color: #072749;
+            color: red;
+            border-radius: 12px;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideIn 1s forwards;
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            color: #00ff00;
+        }
+
+        pre {
+            background-color: #000000;
+            border: 1px solid #00ff00;
+            padding: 10px;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #00ff00;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        .config-panel {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #121212;
+        }
+
+        .will {
+            color: white;
+            background-color: #072749;
+            border-radius: 7px;
+        }
+    </style>
+</head>
+
+<body>
+      <div class="config-panel">
+       <h2>Ajustes</h2>
+        <label for="theme" style="color: #fff;">Tema:</label>
+        <select id="theme" class="will">
+            <option value="light">Claro</option>
+            <option value="dark">Escuro</option>
+        </select>
+        <label for="font-size" style="color: #fff;">Dispositivo:</label>
+        <select id="font-size" class="will">
+            <option value="16">Celular</option>
+            <option value="20">Table</option>
+            <option value="24">Notebook/PC</option>
+        </select>
+    </div>
+
+    <div class="curso-container">
+        <h1 class="animated-title">Construa soluções e transforme ideias em realidade!</h1>
+
+        <h1>Curso de Python Automação Tarefa</h1>
+        <img src="https://images.pexels.com/photos/247791/pexels-photo-247791.png?auto=compress&cs=tinysrgb&w=600&lazy=load" 
+            alt="Curso de Programação Web">
+        <p>Não é a linguagem de programação que define o programador, mas sim sua lógica.</p>
+        <button class="botao">Mostrar Conteúdo</button>
+        <div class="conteudo">
+            <h2>Conteúdo do Curso</h2>
+            <img src="https://images.pexels.com/photos/16129703/pexels-photo-16129703/free-photo-of-homem-mesa-balcao-trabalhando.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+                alt="Imagem Exemplo">
+            <br><br>
+            <header>
+                <h1>Curso de Automação com Python para Tarefas do Dia a Dia</h1>
+                <p>Aprenda a automatizar tarefas comuns com Python e otimize seu tempo.</p>
+            </header>
+        
+            <main>
+        
+                <!-- Introdução -->
+                <section id="introducao">
+                    <h2>1. Introdução à Automação com Python</h2>
+                    <p>O Python é uma das linguagens mais populares para automação de tarefas do dia a dia, devido à sua simplicidade e poder. Neste curso, você aprenderá a usar Python para automatizar processos como o envio de e-mails, renomeação de arquivos e até mesmo a interação com APIs.</p>
+                </section>
+        
+                <!-- Enviar E-mails Automatizados -->
+                <section id="enviar-email">
+                    <h2>2. Enviar E-mails Automáticos com Python</h2>
+                    <p>Você pode automatizar o envio de e-mails usando a biblioteca <code>smtplib</code> do Python. Vamos ver um exemplo de como enviar um e-mail de forma automatizada.</p>
+        
+                    <pre><code>
+        import smtplib
+        from email.mime.text import MIMEText
+        from email.mime.multipart import MIMEMultipart
+        
+        # Configurações do e-mail
+        email = "seu-email@gmail.com"
+        senha = "sua-senha"
+        destinatario = "destinatario@example.com"
+        
+        # Criando a mensagem
+        msg = MIMEMultipart()
+        msg['From'] = email
+        msg['To'] = destinatario
+        msg['Subject'] = "Assunto do E-mail"
+        
+        # Corpo do e-mail
+        corpo = "Olá, este é um e-mail enviado automaticamente via Python!"
+        msg.attach(MIMEText(corpo, 'plain'))
+        
+        # Enviando o e-mail
+        try:
+            servidor = smtplib.SMTP('smtp.gmail.com', 587)
+            servidor.starttls()
+            servidor.login(email, senha)
+            texto = msg.as_string()
+            servidor.sendmail(email, destinatario, texto)
+            servidor.quit()
+            print("E-mail enviado com sucesso!")
+        except Exception as e:
+            print(f"Erro ao enviar e-mail: {e}")
+                    </code></pre>
+        
+                    <p><strong>Explicação:</strong></p>
+                    <ul>
+                        <li><code>smtplib.SMTP</code>: Estabelece a conexão com o servidor de e-mail.</li>
+                        <li><code>starttls()</code>: Ativa uma camada de segurança para a comunicação.</li>
+                        <li><code>login()</code>: Faz login no servidor SMTP.</li>
+                        <li><code>sendmail()</code>: Envia o e-mail para o destinatário.</li>
+                    </ul>
+                </section>
+        
+                <!-- Renomear Arquivos em Massa -->
+                <section id="renomear-arquivos">
+                    <h2>3. Renomear Arquivos em Massa</h2>
+                    <p>Se você precisa renomear múltiplos arquivos em uma pasta, pode usar o Python para facilitar esse processo. Vamos ver como renomear arquivos automaticamente.</p>
+        
+                    <pre><code>
+        import os
+        
+        # Caminho da pasta onde estão os arquivos
+        caminho = "/caminho/para/pasta"
+        
+        # Listando todos os arquivos da pasta
+        arquivos = os.listdir(caminho)
+        
+        # Renomeando os arquivos
+        for i, arquivo in enumerate(arquivos):
+            novo_nome = f"arquivo_{i+1}.txt"
+            os.rename(os.path.join(caminho, arquivo), os.path.join(caminho, novo_nome))
+            print(f"{arquivo} renomeado para {novo_nome}")
+                    </code></pre>
+        
+                    <p><strong>Explicação:</strong></p>
+                    <ul>
+                        <li><code>os.listdir()</code>: Lista todos os arquivos de um diretório.</li>
+                        <li><code>os.rename()</code>: Renomeia os arquivos de acordo com o novo nome gerado.</li>
+                    </ul>
+                </section>
+        
+                <!-- Interagir com APIs (Exemplo de Consumo de API) -->
+                <section id="api">
+                    <h2>4. Interagindo com APIs usando Python</h2>
+                    <p>Você pode automatizar a interação com APIs externas usando o Python. Neste exemplo, vamos fazer uma requisição HTTP a uma API e processar a resposta.</p>
+        
+                    <pre><code>
+        import requests
+        
+        # URL da API
+        url = "https://api.exemplo.com/dados"
+        
+        # Enviando uma requisição GET para a API
+        resposta = requests.get(url)
+        
+        # Processando a resposta
+        if resposta.status_code == 200:
+            dados = resposta.json()  # Converte o JSON para um dicionário Python
+            print("Dados recebidos da API:", dados)
+        else:
+            print(f"Erro ao acessar a API: {resposta.status_code}")
+                    </code></pre>
+        
+                    <p><strong>Explicação:</strong></p>
+                    <ul>
+                        <li><code>requests.get()</code>: Envia uma requisição GET para a API.</li>
+                        <li><code>resposta.json()</code>: Converte a resposta da API de JSON para um dicionário Python.</li>
+                        <li><code>status_code</code>: Verifica o código de status HTTP da resposta (200 significa sucesso).</li>
+                    </ul>
+                </section>
+        
+                <!-- Automação de Navegação com Selenium -->
+                <section id="selenium">
+                    <h2>5. Automação de Navegação Web com Selenium</h2>
+                    <p>Você pode automatizar a navegação em sites e interações com elementos da página usando o Selenium. Vamos ver como abrir um navegador e navegar em um site.</p>
+        
+                    <pre><code>
+        from selenium import webdriver
+        from selenium.webdriver.common.keys import Keys
+        
+        # Inicializando o driver do Chrome
+        driver = webdriver.Chrome()
+        
+        # Acessando o site
+        driver.get("https://www.exemplo.com")
+        
+        # Encontrando um campo de pesquisa e digitando uma consulta
+        campo_pesquisa = driver.find_element_by_name("q")
+        campo_pesquisa.send_keys("Python")
+        campo_pesquisa.send_keys(Keys.RETURN)
+        
+        # Fechar o navegador
+        driver.quit()
+                    </code></pre>
+        
+                    <p><strong>Explicação:</strong></p>
+                    <ul>
+                        <li><code>webdriver.Chrome()</code>: Inicializa o driver do navegador Chrome.</li>
+                        <li><code>find_element_by_name()</code>: Localiza um elemento da página pelo nome (neste caso, o campo de pesquisa).</li>
+                        <li><code>send_keys()</code>: Envia teclas para o campo de pesquisa.</li>
+                    </ul>
+                </section>
+        
+                <!-- Conclusão -->
+                <section id="conclusao">
+                    <h2>6. Conclusão</h2>
+                    <p>Agora você aprendeu como usar o Python para automatizar tarefas diárias simples, como enviar e-mails, renomear arquivos, interagir com APIs e até automatizar a navegação web. A automação pode economizar muito tempo e ajudar a realizar tarefas repetitivas de forma mais eficiente. Continue explorando e criando seus próprios scripts para automatizar seu dia a dia!</p>
+                </section>
+        
+            </main>
+        
+                <button onclick="window.open('quiz.html')">Testar Conhecimento</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="curso-container">
+
+        <h1>Curso de Lógica de Programação</h1>
+        <img src="https://images.pexels.com/photos/907489/pexels-photo-907489.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Curso de Programação Web">
+        <p>A arte de programar consiste em organizar e dominar a complexidade.</p>
+        <button class="botao">Mostrar Conteúdo</button>
+        <div class="conteudo">
+            <h2>Conteúdo do Curso</h2>
+            <img src="https://images.pexels.com/photos/16129703/pexels-photo-16129703/free-photo-of-homem-mesa-balcao-trabalhando.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+                alt="Imagem Exemplo">
+            <br><br>
+           <button class="botao">Video de logica aplicadas em sistemas bancarios</button>
+            <div class="conteudo">
+                <h2>Saida de dados JS</h2>
+                <p>Assista o video com atenção para tenham exeto.</p>
+                <br><br>
+                <video width="320" height="240" controls>
+                    <source src="" type="video/mp4"> <!-- Substitua pelo seu vídeo -->
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+                <div>
+                    <h1>Pronto! Vamos para o proximo video. </h1>
+                    <p>Pouco é necessário. e tempo se abrevia</p>
+                </div>
+            </div>
+            <br><br>
+            <div>
+                <button class="botao">Video de logica programaçao para triangular location</button>
+            <div class="conteudo">
+                <h2>Saida de dados JS</h2>
+                <p>Assista o video com atenção para tenham exeto.</p>
+                <br><br>
+                <video width="320" height="240" controls>
+                    <source src="" type="video/mp4"> <!-- Substitua pelo seu vídeo -->
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+                <div>
+                    <button onclick="window.open('TerminalCreSoftMob.html', alert('Agora você que nao tem um pc nao se preocupe, agora voce pode testar usando Terminal'))">Acesse o terminal</button>
+                    <h1>Pronto! Vamos para o proximo video. </h1>
+                    <p>A lógica de programação nos ensinou hoje que tudo pode ser algoritmizado. Um pessoa me perguntou Mendes, por que voce gosta tanto de programaçao
+                        eu respondir nao é tanto a programaçao mas o poder que dar ela da movimento se voce nao está no controle se voce nao disse oque ela deve fazer ela ficar ali, sem proposito nenhum.
+                        ela me disse ainda bem que a pessoa nao sao programada, ja pensou como seria se a pessoas nos controlasse atraves da programaçao ainda bem que eu acredito que amor pode mudar as pessoas, voce tambem acredita nisso Mendes. Mendes: nao mais!
+                    </p>
+                </div>
+            </div>
+            <div>
+                <h1>Lógica de Programação e Algoritmos em JavaScript</h1>
+<p>Aprenda a lógica de programação e como aplicar seus conceitos com JavaScript para criar soluções eficientes no desenvolvimento de sistemas. Vamos explorar conceitos fundamentais, funções, e exemplos práticos com aplicações do dia a dia.</p>
+
+<h2>1. Conceitos Fundamentais de JavaScript</h2>
+
+<h3>1.1. Variáveis</h3>
+<p>Variáveis armazenam dados temporários. Em JavaScript, podemos declarar variáveis com <code>let</code>, <code>const</code> e <code>var</code>. Vamos ver um exemplo prático:</p>
+
+<pre><code>
+let nome = "João"; // Declara uma variável que pode ser alterada
+const idade = 25; // Declara uma variável constante (não pode ser alterada)
+
+console.log(nome);  // João
+console.log(idade); // 25
+</code></pre>
+
+<p><strong>Exemplo do dia a dia:</strong> Suponha que você tenha uma variável para armazenar o nome do cliente em um sistema de cadastro. Você pode usar <code>let</code> para armazenar o nome do cliente e <code>const</code> para armazenar valores fixos, como a idade.</p>
+
+<h3>1.2. Tipos de Dados</h3>
+<p>JavaScript possui diversos tipos de dados que você pode usar em seu código:</p>
+
+<ul>
+    <li><strong>Números</strong>: Para valores inteiros ou decimais. <code>let preco = 10.5;</code></li>
+    <li><strong>Strings</strong>: Texto entre aspas. <code>let nome = "Maria";</code></li>
+    <li><strong>Booleanos</strong>: Representam verdadeiro ou falso. <code>let isActive = true;</code></li>
+    <li><strong>Objetos</strong>: Coleções de pares chave-valor. <code>let pessoa = { nome: "Carlos", idade: 30 }; </code></li>
+    <li><strong>Arrays</strong>: Lista ordenada de dados. <code>let frutas = ["maçã", "banana", "laranja"];</code></li>
+</ul>
+
+<h3>1.3. Operadores</h3>
+<p>Os operadores permitem realizar operações com variáveis e valores.</p>
+
+<pre><code>
+let resultado = 5 + 10; // Soma
+let isEqual = (10 === 10); // Comparação (true)
+let isActive = true;
+let isNotActive = !isActive; // Inverte o valor de isActive
+</code></pre>
+
+<p><strong>Exemplo do dia a dia:</strong> Imagine um sistema de pagamento, onde você pode somar valores de diferentes produtos e depois comparar o valor total com o limite do cartão de crédito. Você usaria operadores aritméticos e de comparação para verificar se o pagamento é viável.</p>
+
+---
+
+<h2>2. Estruturas de Controle</h2>
+
+<h3>2.1. Condicional <code>if</code></h3>
+<p>O <code>if</code> permite que você tome decisões baseadas em condições.</p>
+
+<pre><code>
+let idade = 20;
+if (idade >= 18) {
+    console.log("Você é maior de idade.");
+} else {
+    console.log("Você é menor de idade.");
+}
+</code></pre>
+
+<p><strong>Exemplo do dia a dia:</strong> Em um sistema de validação de idade para entrada em um site, você pode verificar se a idade do usuário é maior ou igual a 18 para permitir o acesso.</p>
+
+<h3>2.2. Laços de Repetição</h3>
+<p>Os loops permitem executar um bloco de código repetidamente.</p>
+
+<h4><code>for</code> Loop</h4>
+<p>Utilizado quando você sabe o número de repetições.</p>
+
+<pre><code>
+for (let i = 0; i < 5; i++) {
+    console.log("Número: " + i);
+}
+</code></pre>
+
+<h4><code>while</code> Loop</h4>
+<p>Utilizado quando você não sabe quantas repetições acontecerão.</p>
+
+<pre><code>
+let contador = 0;
+while (contador < 5) {
+    console.log("Contador: " + contador);
+    contador++;
+}
+</code></pre>
+
+<p><strong>Exemplo do dia a dia:</strong> Um sistema de inventário pode usar um loop para verificar cada item de uma lista e realizar uma operação, como aplicar um desconto a todos os produtos ou verificar se a quantidade de estoque é suficiente.</p>
+
+---
+
+<h2>3. Funções em JavaScript</h2>
+
+<p>As funções são blocos de código que podem ser reutilizados. Elas recebem parâmetros e podem retornar resultados.</p>
+
+<pre><code>
+function saudacao(nome) {
+    return "Olá, " + nome + "!";
+}
+
+console.log(saudacao("Carlos"));  // Olá, Carlos!
+</code></pre>
+
+<p><strong>Exemplo do dia a dia:</strong> Em um site de comércio eletrônico, uma função pode ser usada para calcular o valor do frete, baseado no endereço do cliente e no peso dos itens no carrinho.</p>
+
+---
+
+<h2>4. Manipulação de Arrays e Objetos</h2>
+
+<h3>4.1. Arrays</h3>
+<p>Arrays são coleções de dados que você pode manipular facilmente. Vamos adicionar e remover elementos de um array.</p>
+
+<pre><code>
+let frutas = ["maçã", "banana", "laranja"];
+frutas.push("uva"); // Adiciona "uva"
+console.log(frutas); // ["maçã", "banana", "laranja", "uva"]
+
+frutas.pop(); // Remove o último elemento
+console.log(frutas); // ["maçã", "banana", "laranja"]
+</code></pre>
+
+<p><strong>Exemplo do dia a dia:</strong> Imagine um sistema de lista de compras. Você pode adicionar produtos à lista com <code>push()</code> e remover produtos com <code>pop()</code> à medida que o usuário faz suas compras.</p>
+
+<h3>4.2. Objetos</h3>
+<p>Objetos são usados para agrupar dados relacionados. Cada item é composto por uma chave (propriedade) e um valor.</p>
+
+<pre><code>
+let carro = {
+    marca: "Ford",
+    modelo: "Fiesta",
+    ano: 2021
+};
+
+console.log(carro.marca); // Ford
+</code></pre>
+
+<p><strong>Exemplo do dia a dia:</strong> Um sistema de gestão de veículos pode usar objetos para armazenar informações de cada carro, como marca, modelo e ano de fabricação.</p>
+
+---
+
+<h2>5. Algoritmos Práticos</h2>
+
+<h3>5.1. Cálculo de Média e Aprovação</h3>
+<p>Vamos criar uma função que calcula a média de notas de um aluno e verifica se ele foi aprovado ou reprovado.</p>
+
+<pre><code>
+function verificarAprovacao(notas) {
+    let soma = 0;
+
+    for (let i = 0; i < notas.length; i++) {
+        soma += notas[i];
+    }
+
+    let media = soma / notas.length;
+
+    if (media >= 7) {
+        return "Aprovado com média: " + media;
+    } else {
+        return "Reprovado com média: " + media;
+    }
+}
+
+let notas = [8, 6, 7, 9];
+console.log(verificarAprovacao(notas)); // Aprovado com média: 7.5
+</code></pre>
+
+<p><strong>Exemplo do dia a dia:</strong> Em um sistema escolar, você pode usar este algoritmo para calcular as notas de um aluno e informar se ele foi aprovado ou reprovado com base na média.</p>
+
+---
+
+<h2>Conclusão</h2>
+<p>Compreender e aplicar a lógica de programação em JavaScript é essencial para criar soluções eficientes e dinâmicas na web. A prática constante com exemplos práticos do dia a dia vai ajudá-lo a se tornar um programador mais proficiente e capaz de resolver problemas reais.</p>
+
+                <button onclick="window.open('quiz.html')">Testar Conhecimento</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="curso-container">
+
+        <h1>Curso de JavaScript Back End</h1>
+        <img src="https://images.pexels.com/photos/6804604/pexels-photo-6804604.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Curso de Programação Web">
+        <p>Programadores e artistas são os únicos profissionais que tem como hobby a própria profissão.</p>
+        <button class="botao">Mostrar Conteúdo</button>
+        <div class="conteudo">
+            <h2>Conteúdo do Curso</h2>
+            <img src="https://images.pexels.com/photos/16129703/pexels-photo-16129703/free-photo-of-homem-mesa-balcao-trabalhando.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+                alt="Imagem Exemplo">
+            <br><br>
+            <div>
+                <!--Here you put video about thema, thanks mr Afonso Mendes-->
+                <main>
+
+                    <!-- Introdução -->
+                    <section id="introducao">
+                        <h2>1. Introdução ao JavaScript Backend</h2>
+                        <p>O JavaScript não é usado apenas no frontend. Com a plataforma <strong>Node.js</strong>, é possível criar servidores e trabalhar com o backend da aplicação utilizando JavaScript. Vamos explorar como criar servidores, APIs e interagir com bancos de dados com o uso de tecnologias como <strong>Express.js</strong> e <strong>MongoDB</strong>.</p>
+                    </section>
+            
+                    <!-- Criando Servidor com Node.js -->
+                    <section id="nodejs">
+                        <h2>2. Criando um Servidor com Node.js</h2>
+                        <p>O Node.js permite criar servidores web com JavaScript. Aqui vamos criar um servidor simples utilizando o módulo HTTP nativo do Node.js.</p>
+            
+                        <pre><code>
+            // Importando o módulo http para criar um servidor
+            const http = require('http');
+            
+            // Criando o servidor
+            const server = http.createServer((req, res) => {
+                res.writeHead(200, { 'Content-Type': 'text/plain' });
+                res.end('Olá, este é um servidor backend em Node.js!');
+            });
+            
+            // Definindo a porta e iniciando o servidor
+            const port = 3000;
+            server.listen(port, () => {
+                console.log(`Servidor rodando em http://localhost:${port}`);
+            });
+                        </code></pre>
+            
+                        <p><strong>Explicação:</strong></p>
+                        <ul>
+                            <li><code>http.createServer()</code>: Cria um servidor HTTP.</li>
+                            <li><code>server.listen()</code>: Inicia o servidor na porta especificada.</li>
+                        </ul>
+                    </section>
+            
+                    <!-- Criando API com Express -->
+                    <section id="express">
+                        <h2>3. Criando uma API com Node.js e Express.js</h2>
+                        <p>O Express.js facilita a criação de servidores e APIs em Node.js. Vamos construir uma API simples que responde a requisições GET.</p>
+            
+                        <pre><code>
+            // Importando o express
+            const express = require('express');
+            const app = express();
+            
+            // Definindo uma rota GET
+            app.get('/', (req, res) => {
+                res.send('Olá, esta é uma API com Express.js!');
+            });
+            
+            // Definindo a porta e iniciando o servidor
+            const port = 3000;
+            app.listen(port, () => {
+                console.log(`Servidor rodando em http://localhost:${port}`);
+            });
+                        </code></pre>
+            
+                        <p><strong>Explicação:</strong></p>
+                        <ul>
+                            <li><code>express()</code>: Cria uma aplicação Express.</li>
+                            <li><code>app.get()</code>: Define uma rota GET para responder com "Olá, esta é uma API com Express.js!".</li>
+                            <li><code>app.listen()</code>: Inicia o servidor na porta especificada.</li>
+                        </ul>
+                    </section>
+            
+                    <!-- API com CRUD -->
+                    <section id="crud">
+                        <h2>4. Criando uma API CRUD com Express.js</h2>
+                        <p>Agora, vamos criar uma API que realiza operações CRUD (Criar, Ler, Atualizar, Excluir) para gerenciar usuários.</p>
+            
+                        <pre><code>
+            // Importando o express
+            const express = require('express');
+            const app = express();
+            
+            // Usando o middleware para interpretar JSON
+            app.use(express.json());
+            
+            // Simulando um banco de dados com um array
+            let usuarios = [
+                { id: 1, nome: 'João', email: 'joao@exemplo.com' },
+                { id: 2, nome: 'Maria', email: 'maria@exemplo.com' }
+            ];
+            
+            // Rota para listar todos os usuários
+            app.get('/usuarios', (req, res) => {
+                res.json(usuarios);
+            });
+            
+            // Rota para adicionar um novo usuário
+            app.post('/usuarios', (req, res) => {
+                const { nome, email } = req.body;
+                const novoUsuario = { id: usuarios.length + 1, nome, email };
+                usuarios.push(novoUsuario);
+                res.status(201).json(novoUsuario);
+            });
+            
+            // Rota para excluir um usuário
+            app.delete('/usuarios/:id', (req, res) => {
+                const { id } = req.params;
+                usuarios = usuarios.filter(u => u.id != id);
+                res.status(204).send();
+            });
+            
+            // Iniciando o servidor
+            const port = 3000;
+            app.listen(port, () => {
+                console.log(`Servidor rodando em http://localhost:${port}`);
+            });
+                        </code></pre>
+            
+                        <p><strong>Explicação:</strong></p>
+                        <ul>
+                            <li><code>GET /usuarios</code>: Rota para listar todos os usuários.</li>
+                            <li><code>POST /usuarios</code>: Rota para adicionar um novo usuário.</li>
+                            <li><code>DELETE /usuarios/:id</code>: Rota para excluir um usuário pelo ID.</li>
+                        </ul>
+                    </section>
+            
+                    <!-- Conectando com MongoDB -->
+                    <section id="mongodb">
+                        <h2>5. Conectando a um Banco de Dados com MongoDB</h2>
+                        <p>Agora vamos conectar o Node.js a um banco de dados MongoDB, permitindo persistir dados e manipular informações com o Mongoose.</p>
+            
+                        <pre><code>
+            // Importando as dependências
+            const express = require('express');
+            const mongoose = require('mongoose');
+            const app = express();
+            
+            // Usando o middleware para interpretar JSON
+            app.use(express.json());
+            
+            // Conectando ao MongoDB
+            mongoose.connect('mongodb://localhost:27017/meubanco', { useNewUrlParser: true, useUnifiedTopology: true })
+                .then(() => console.log('Conectado ao MongoDB'))
+                .catch(err => console.log('Erro ao conectar ao MongoDB', err));
+            
+            // Definindo o modelo de usuário
+            const Usuario = mongoose.model('Usuario', new mongoose.Schema({
+                nome: String,
+                email: String
+            }));
+            
+            // Rota para listar todos os usuários
+            app.get('/usuarios', async (req, res) => {
+                const usuarios = await Usuario.find();
+                res.json(usuarios);
+            });
+            
+            // Rota para adicionar um novo usuário
+            app.post('/usuarios', async (req, res) => {
+                const { nome, email } = req.body;
+                const novoUsuario = new Usuario({ nome, email });
+                await novoUsuario.save();
+                res.status(201).json(novoUsuario);
+            });
+            
+            // Iniciando o servidor
+            const port = 3000;
+            app.listen(port, () => {
+                console.log(`Servidor rodando em http://localhost:${port}`);
+            });
+                        </code></pre>
+            
+                        <p><strong>Explicação:</strong></p>
+                        <ul>
+                            <li><code>mongoose.connect()</code>: Conecta o Node.js ao MongoDB.</li>
+                            <li><code>Usuario.find()</code>: Encontra todos os usuários na coleção.</li>
+                            <li><code>novoUsuario.save()</code>: Salva um novo usuário no banco de dados MongoDB.</li>
+                        </ul>
+                    </section>
+            
+                    <!-- Conclusão -->
+                    <section id="conclusao">
+                        <h2>6. Conclusão</h2>
+                        <p style="color: #000000;">Agora você tem uma compreensão básica de como trabalhar com o backend utilizando Node.js, Express.js e MongoDB. Com esses conhecimentos, você pode começar a construir suas próprias APIs, servidores e aplicações backend mais complexas. Continue praticando e explorando mais sobre essas tecnologias para aprimorar suas habilidades!</p>
+                    </section>
+             </main>
+             <button onclick="window.open('quiz.html')">Testar Conhecimento</button>
+            </div>
+        </div>
+    </div>
+    <div class="curso-container">
+
+        <h1>Curso de HTML e JavaScript Web</h1>
+        <img src="https://images.pexels.com/photos/10725897/pexels-photo-10725897.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Curso de Programação Web">
+        <p>Aprenda a desenvolver websites incríveis com HTML, CSS e JavaScript!</p>
+        <button class="botao">Mostrar Conteúdo</button>
+        <div class="conteudo">
+            <h2>Conteúdo do Curso</h2>
+            <img src="https://images.pexels.com/photos/16129703/pexels-photo-16129703/free-photo-of-homem-mesa-balcao-trabalhando.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+                alt="Imagem Exemplo">
+            <br><br>
+            <div>
+                <!--Coloque aqui botao de videos sobre o tema html e js web-->
+                <h1>Veja o conteúdo mais visual</h1>
+                <!--Colocar os codigo para que usuario possa ver e testar -->
+
+                <nav>
+                    <ul>
+                        <li><a href="#introducao">Introdução ao HTML</a></li>
+                        <li><a href="#javascript">Introdução ao JavaScript</a></li>
+                        <li><a href="#variaveis">Variáveis e Tipos de Dados</a></li>
+                        <li><a href="#condicionais">Condicionais em JavaScript</a></li>
+                        <li><a href="#loops">Laços de Repetição</a></li>
+                        <li><a href="#eventos">Eventos e Interatividade</a></li>
+                        <li><a href="#formulario">Formulários em HTML</a></li>
+                        <li><a href="#conclusao">Conclusão</a></li>
+                    </ul>
+                </nav>
+            
+                <main>
+                    <section id="introducao">
+                        <h2>1. Introdução ao HTML</h2>
+                        <p>HTML é a base de qualquer página web. Ele define a estrutura e o conteúdo da página. Aqui estão algumas tags essenciais:</p>
+            
+                        <h3>1.1. Estrutura Básica de uma Página HTML</h3>
+                        <pre><code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="pt-br"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;title&gt;Título da Página&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;h1&gt;Título da Página&lt;/h1&gt;
+                    &lt;p&gt;Este é o conteúdo da página.&lt;/p&gt;
+                &lt;/body&gt;
+            &lt;/html&gt;
+                        </code></pre>
+            
+                        <h3>1.2. Tags Importantes</h3>
+                        <ul>
+                            <li><strong>&lt;h1&gt; a &lt;h6&gt;</strong>: Cabeçalhos de diferentes níveis.</li>
+                            <li><strong>&lt;p&gt;</strong>: Parágrafos de texto.</li>
+                            <li><strong>&lt;a&gt;</strong>: Links.</li>
+                            <li><strong>&lt;img&gt;</strong>: Imagens.</li>
+                            <li><strong>&lt;ul&gt; / &lt;ol&gt; / &lt;li&gt;</strong>: Listas.</li>
+                        </ul>
+                    </section>
+            
+                    <section id="javascript">
+                        <h2>2. Introdução ao JavaScript</h2>
+                        <p>JavaScript é a linguagem de programação usada para adicionar interatividade às páginas web. Vamos aprender como usar o JavaScript para alterar o conteúdo de uma página e interagir com o usuário.</p>
+            
+                        <h3>2.1. Como Adicionar JavaScript a uma Página</h3>
+                        <pre><code>
+            &lt;script&gt;
+                alert("Olá, seja bem-vindo ao curso de HTML e JavaScript!");
+            &lt;/script&gt;
+                        </code></pre>
+            
+                        <h3>2.2. Exemplo Básico de Interatividade</h3>
+                        <p>Vamos criar um botão que, quando clicado, exibe uma mensagem:</p>
+            
+                        <button onclick="exibirMensagem()">Clique aqui</button>
+                        <p id="mensagem"></p>
+            
+                        <script>
+                            function exibirMensagem() {
+                                document.getElementById("mensagem").innerHTML = "Você clicou no botão!";
+                            }
+                        </script>
+                    </section>
+            
+                    <section id="variaveis">
+                        <h2>3. Variáveis e Tipos de Dados em JavaScript</h2>
+                        <p>Em JavaScript, você pode armazenar dados em variáveis. Existem diferentes tipos de dados, como números, strings e booleanos.</p>
+            
+                        <h3>3.1. Declarando Variáveis</h3>
+                        <pre><code>
+            let nome = "João"; // Variável do tipo string
+            const idade = 25; // Variável constante
+            let ativo = true; // Variável do tipo booleano
+                        </code></pre>
+            
+                        <h3>3.2. Manipulando Variáveis</h3>
+                        <p>Você pode manipular variáveis para realizar operações matemáticas e manipular texto:</p>
+            
+                        <pre><code>
+            let numero1 = 10;
+            let numero2 = 5;
+            let soma = numero1 + numero2; // 15
+            
+            let saudacao = "Olá, " + nome; // "Olá, João"
+                        </code></pre>
+                    </section>
+            
+                    <section id="condicionais">
+                        <h2>4. Estruturas Condicionais</h2>
+                        <p>As estruturas condicionais são usadas para tomar decisões no código. O <code>if</code> é a mais comum.</p>
+            
+                        <h3>4.1. Exemplo de Condicional <code>if</code></h3>
+                        <pre><code>
+            let idade = 18;
+            
+            if (idade >= 18) {
+                console.log("Você é maior de idade.");
+            } else {
+                console.log("Você é menor de idade.");
+            }
+                        </code></pre>
+            
+                        <h3>4.2. Condicional <code>else if</code></h3>
+                        <p>Você pode adicionar várias condições com <code>else if</code>:</p>
+            
+                        <pre><code>
+            let hora = 14;
+            
+            if (hora < 12) {
+                console.log("Bom dia!");
+            } else if (hora < 18) {
+                console.log("Boa tarde!");
+            } else {
+                console.log("Boa noite!");
+            }
+                        </code></pre>
+                    </section>
+            
+                    <section id="loops">
+                        <h2>5. Laços de Repetição</h2>
+                        <p>Os laços de repetição são usados para executar um bloco de código várias vezes.</p>
+            
+                        <h3>5.1. Exemplo de <code>for</code></h3>
+                        <pre><code>
+            for (let i = 0; i < 5; i++) {
+                console.log("Número: " + i);
+            }
+                        </code></pre>
+            
+                        <h3>5.2. Exemplo de <code>while</code></h3>
+                        <pre><code>
+            let contador = 0;
+            while (contador < 5) {
+                console.log("Contador: " + contador);
+                contador++;
+            }
+                        </code></pre>
+                    </section>
+                    <section id="eventos">
+                        <h2>6. Eventos e Interatividade</h2>
+                        <p>Eventos permitem que o JavaScript reaja à interação do usuário, como clicar em um botão, mover o mouse ou digitar em um campo de texto.</p>
+            
+                        <h3>6.1. Exemplo de Evento de Clique</h3>
+                        <button id="meuBotao">Clique aqui</button>
+                        <p id="saida"></p>
+            
+                        <script>
+                            document.getElementById("meuBotao").addEventListener("click", function() {
+                                document.getElementById("saida").innerHTML = "Botão clicado!";
+                            });
+                        </script>
+            
+                        <h3>6.2. Evento de Mouse</h3>
+                        <p>Movendo o mouse sobre um elemento:</p>
+                        <div id="area" style="width: 200px; height: 100px; background-color: lightblue; text-align: center;">
+                            Passe o mouse aqui
+                        </div>
+                        <p id="saidaMouse"></p>
+            
+                        <script>
+                            document.getElementById("area").addEventListener("mouseover", function() {
+                                document.getElementById("saidaMouse").innerHTML = "Você passou o mouse!";
+                            });
+                        </script>
+                    </section>
+            
+                    <section id="formulario">
+                        <h2>7. Formulários em HTML</h2>
+                        <p>Formulários são usados para coletar dados do usuário. Veja como criar um formulário simples:</p>
+            
+                        <form id="meuFormulario">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome"><br><br>
+            
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email"><br><br>
+            
+                            <input type="submit" value="Enviar">
+                        </form>
+            
+                        <script>
+                            document.getElementById("meuFormulario").addEventListener("submit", function(event) {
+                                event.preventDefault();
+                                alert("Formulário enviado!");
+                            });
+                        </script>
+                    </section>
+            
+                    <section id="conclusao">
+                        <h2>Conclusão</h2>
+                        <p>Agora você tem uma base sólida para começar a desenvolver páginas web com HTML e JavaScript. A prática constante vai ajudar a aprimorar suas habilidades. Continue explorando e criando suas próprias páginas e projetos interativos!</p>
+                    </section>
+                </main>
+            
+                <button onclick="window.open('quiz.html')">Testar Conhecimento</button>
+            </div>
+        </div>
+    </div>
+    <div class="curso-container">
+
+        <h1>Curso de Pentest</h1>
+        <img src="https://images.pexels.com/photos/11035476/pexels-photo-11035476.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Curso de Programação Web">
+        <p>Siga em trajetória retilínea rumo aos seus objetivos.</p>
+        <button class="botao">Mostrar Conteúdo</button>
+        <div class="conteudo">
+            <h2>Conteúdo do Curso</h2>
+            <img src="https://images.pexels.com/photos/16129703/pexels-photo-16129703/free-photo-of-homem-mesa-balcao-trabalhando.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+                alt="Imagem Exemplo">
+            <br><br>
+            <div>
+                <h1>Lógica de Programação em JavaScript</h1>
+                <p>A lógica de programação é um conjunto de raciocínios e estratégias que um programador utiliza para
+                    resolver problemas de maneira eficaz...</p>
+                <button onclick="window.open('quiz.html')">Testar Conhecimento</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBn--dt2Zq2Vtj470X0xtYkHwSjduGTtEE",
+            authDomain: "nowgoes-72fe6.firebaseapp.com",
+            projectId: "nowgoes-72fe6",
+            storageBucket: "nowgoes-72fe6.appspot.com",
+            messagingSenderId: "641787835682",
+            appId: "1:641787835682:web:3f47b48fab8000217d217b"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                console.log("Usuario não autenticado, redirecionando...");
+                window.location.href = 'login2.html';
+            }
+        });
+
+        const botoes = document.querySelectorAll('.botao');
+        const conteudos = document.querySelectorAll('.conteudo');
+
+        botoes.forEach((botao, index) => {
+            botao.addEventListener('click', () => {
+                if (conteudos[index].style.display === 'none' || conteudos[index].style.display === '') {
+                    conteudos[index].style.display = 'block';
+                    botao.textContent = 'Esconder Conteúdo';
+                } else {
+                    conteudos[index].style.display = 'none';
+                    botao.textContent = 'Mostrar Conteúdo';
+                }
+            });
+        });
+
+        const themeSelector = document.getElementById('theme');
+        const fontSizeSelector = document.getElementById('font-size');
+
+        themeSelector.addEventListener('change', (event) => {
+            const selectedTheme = event.target.value;
+            if (selectedTheme === 'dark') {
+                document.body.style.backgroundColor = '#333';
+                document.body.style.color = '#fff';
+                document.querySelectorAll('.curso-container').forEach(container => {
+                    container.style.backgroundColor = '#444';
+                });
+            } else {
+                document.body.style.backgroundColor = 'gold';
+                document.body.style.color = '#000';
+                document.querySelectorAll('.curso-container').forEach(container => {
+                    container.style.backgroundColor = '#fff';
+                });
+            }
+        });
+
+        fontSizeSelector.addEventListener('change', (event) => {
+            const selectedSize = event.target.value + 'px';
+            document.body.style.fontSize = selectedSize;
+        });
+    </script>
+
+</body>
+
+</html>
